@@ -13,7 +13,6 @@ def payload(String str) {
   }
   def json = JsonOutput.toJson(root)
   return json
-  */
 }
 
 
