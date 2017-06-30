@@ -2,7 +2,7 @@ node {
     println "hello world"
     checkout scm
     sh('ls')
-    def p = load "../lib.groovy"
+    def p = load "lib.groovy"
 
     p.test1()
 
