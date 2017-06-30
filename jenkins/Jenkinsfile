@@ -2,7 +2,7 @@ node {
     checkout scm
     def p = load "lib.groovy"
 
-    p.payload("http://data.com/asd/")
+    p.getnexusrepo("http://172.17.0.1:8081")
 
     p.test1()
 

@@ -4,17 +4,19 @@ def test1() {
   println "test1"
 }
 
-def payload(String str) {
-  remoteUri = str
-  repodomain = str.split('/')
-  reponame = repodomain[2].replace(".","-")
-  def writer = new StringWriter()
-  def builder = new groovy.json.JsonBuilder()
-  def root = builder.data { data { text 'hello'}}
-  def json = JsonOutput.toJson(root)
-  return json
+def getnexusrepo(String url) {
+  def http = new HTTPBuilder( "${url}" )
+  def html = http.get( path : '/nexus/service/local/repositories')
+  def output = http.request( GET, TEXT ) { req ->
+    uri.path = '/nexus/service/local/repositories'
+    headers.Accept = 'application/json'
+    response.success = { resp, reader ->
+      assert resp.statusLine.statusCode == 200
+      return reader.text
+    }
+    return response.success
+  }
 }
-
 
 def test2() {
   println "test2"
