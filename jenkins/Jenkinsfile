@@ -4,6 +4,6 @@ node {
     sh('ls')
     nexuslib = load'./lib.groovy'
 
-    //def postdata = nexuslib.getpostdata("http://awes.com/asdq/")
-    //println postdata
+    def postdata = nexuslib.getpostdata("http://awes.com/asdq/")
+    println postdata
 }
