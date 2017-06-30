@@ -1,7 +1,9 @@
-node {
+pipeline {
   stages {
-    steps {
-      println "hello world"
+    stage {
+      steps {
+        println "hello world"
+      }
     }
   }
 }
