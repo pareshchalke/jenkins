@@ -1,3 +1,5 @@
+import groovy.json.JsonOutput
+
 def test1() {
   println "test1"
 }
@@ -9,7 +11,7 @@ def payload(String str) {
   def writer = new StringWriter()
   def builder = new groovy.json.JsonBuilder()
   def root = builder.data {
-    repoType "proxy"
+    repoType { 'proxy' }
   }
   def json = JsonOutput.toJson(root)
   return json
