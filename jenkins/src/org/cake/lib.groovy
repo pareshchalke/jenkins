@@ -5,3 +5,4 @@ def test1() {
 def test2() {
   println "test2"
 }
+return this
