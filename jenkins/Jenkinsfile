@@ -3,7 +3,7 @@ node {
     checkout scm
     sh('ls')
 
-    load('jenkins/src/org/cake/lib.groovy')
-    method()
+    def p = load('jenkins/src/org/cake/lib.groovy')
+    p.test1()
 
 }
