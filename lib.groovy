@@ -1,6 +1,6 @@
 @NonCPS
 
-def getpostdata (String url)= { url ->
+def getpostdata (String url) {
   remoteUri = url
   repodomain = url.split('/')
   reponame = repodomain[2].replace(".","-")
