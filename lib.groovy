@@ -10,9 +10,7 @@ def payload(String str) {
   reponame = repodomain[2].replace(".","-")
   def writer = new StringWriter()
   def builder = new groovy.json.JsonBuilder()
-  def root = builder.data {
-    repoType { 'proxy' }
-  }
+  def root = builder.data { text }
   def json = JsonOutput.toJson(root)
   return json
 }
