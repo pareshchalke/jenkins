@@ -7,7 +7,7 @@ def payload(String str) {
   repodomain = str.split('/')
   reponame = repodomain[2].replace(".","-")
   println remoteUri
-  println repodomain
+  println repodomain.text()
   println reponame
 /*  def writer = new StringWriter()
   def builder = new groovy.json.JsonBuilder()
