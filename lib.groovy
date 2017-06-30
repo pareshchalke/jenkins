@@ -6,7 +6,10 @@ def payload(String str) {
   remoteUri = str
   repodomain = str.split('/')
   reponame = repodomain[2].replace(".","-")
-  def writer = new StringWriter()
+  println remoteUri
+  println repodomain
+  println reponame
+/*  def writer = new StringWriter()
   def builder = new groovy.json.JsonBuilder()
   def root = builder.data {
     repoType "proxy"
@@ -26,6 +29,7 @@ def payload(String str) {
   }
   def json = JsonOutput.toJson(root)
   return json
+  */
 }
 
 
