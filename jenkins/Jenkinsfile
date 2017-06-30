@@ -1,5 +1,6 @@
 node {
     println "hello world"
+    sh('ls')
     def p = load "../lib.groovy"
 
     p.test1()
