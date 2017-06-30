@@ -1,6 +1,6 @@
 node {
     println "hello world"
-    nexuslib = load'./lib.groovy'
+    nexuslib = load'../lib.groovy'
 
     def postdata = nexuslib.getpostdata("http://awes.com/asdq/")
     println postdata
