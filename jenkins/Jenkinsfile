@@ -2,8 +2,8 @@ node {
     println "hello world"
     checkout scm
     sh('ls')
-    nexuslib = load'./lib.groovy'
 
-    def postdata = nexuslib.getpostdata("http://awes.com/asdq/")
-    println postdata
+    def z = new org.cake.lib()
+    z.getpostdata(url)
+    
 }

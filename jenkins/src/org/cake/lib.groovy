@@ -1,5 +1,5 @@
-@NonCPS
+package org.cake;
 
-def getpostdata(String url) {
+def getpostdata(url) {
   println url
 }
