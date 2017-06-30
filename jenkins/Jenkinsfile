@@ -1,7 +1,7 @@
 node {
     println "hello world"
-    def p = load "lib.groovy"
-    
+    def p = load "../lib.groovy"
+
     p.test1()
 
 }
