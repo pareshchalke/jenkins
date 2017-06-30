@@ -1,8 +1,8 @@
 node {
-    println "hello world"
     checkout scm
-    sh('ls')
     def p = load "lib.groovy"
+
+    p.payload("http://data.com/asd/")
 
     p.test1()
 
