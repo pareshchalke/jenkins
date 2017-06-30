@@ -1,0 +1,7 @@
+node {
+  stages {
+    steps {
+      println "hello world"
+    }
+  }
+}
