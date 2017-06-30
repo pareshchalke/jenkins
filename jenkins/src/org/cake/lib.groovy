@@ -1,5 +1,5 @@
-package org.cake;
-
-def getpostdata(url) {
-  println url
+class File1 {
+  def method() {
+    println "test"
+  }
 }

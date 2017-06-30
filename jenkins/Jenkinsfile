@@ -3,7 +3,7 @@ node {
     checkout scm
     sh('ls')
 
-    def z = new org.cake.lib()
-    z.getpostdata(url)
-    
+    load('org/cake/lib.groovy')
+    method()
+
 }
