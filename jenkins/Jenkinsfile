@@ -1,12 +1,3 @@
-pipeline {
-  agent {
-    label *
-  }
-  stages {
-    stage {
-      steps {
-        println "hello world"
-      }
-    }
-  }
+node {
+    println "hello world"
 }
