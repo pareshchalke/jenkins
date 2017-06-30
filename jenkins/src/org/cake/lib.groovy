@@ -1,4 +1,4 @@
-class File1 {
+class lib {
   def method() {
     println "test"
   }
