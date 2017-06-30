@@ -1,7 +1,11 @@
 node {
     println "hello world"
-    nexuslib = load'../lib.groovy'
 
+    git branch: master, url: 'https://github.com/pareshchalke/jenkins'
+
+    nexuslib = load'./lib.groovy'
+
+    sh('ls')
     def postdata = nexuslib.getpostdata("http://awes.com/asdq/")
     println postdata
 }
