@@ -14,12 +14,13 @@ def getnexusrepo(String url) {
     return nexuslist
 }
 
-def missingrepos(String repofile, String nexuslist) {
-    repolist.eachLine { line ->
+def test3(String repolist, String repofile) {
+    def codelist = new File("${repofile}")
+    println "${repolist}"
+    codelist.eachLine { line ->
         println line
     }
-    println repofile
-    println nexuslist
+    //println list
 }
 
 def test2() {

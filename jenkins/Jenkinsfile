@@ -3,7 +3,8 @@ node {
     def p = load "lib.groovy"
 
     def output = p.getnexusrepo("http://172.17.0.1:8081/nexus/service/local/repositories")
-    def repo = p.missingrepos("")
+    //def repo = p.missingrepos(output)
     println output
-
+    println p.test3("${output}","repolist")
+    println p.test2()
 }
