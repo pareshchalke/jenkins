@@ -14,23 +14,54 @@ def getnexusrepo(String url) {
         repo && nexuslist << it.remoteUri
     }
     //println nexuslist
-    return nexuslist
+    /*nexuslist.each {
+        println "++++++++ NEXUS LIST"
+        println it
+        println "++++++++"
+    }*/
+    nexuslist
 }
 
 def generatelist(String[] nexusrepo, String repofile) {
+    println nexusrepo
+    nexusrepo.each {
+        println "++++++++++++++ generatelist method"
+        println it
+    }
     def newlist = []
     def workspace = env.WORKSPACE
     def repolist = new File("${workspace}/${repofile}")
     def lines = repolist.readLines()
     lines.each { String line ->
         value = nexusrepo.contains(line)
-        println value
         if (value == false) {
-            newlist << line
+            //println line + "MMMMMMMMMMMMMMMMMMMMM"
+            line && newlist << line
         }
+        //println newlist
     }
-    //println newlist
-    return newlist
+    println newlist
+    newlist
+}
+
+def createrepo(String[] clist, String msg) {
+    println "************* createrepo method"
+    println clist
+    //println "${msg}"
+    //def l = Eval.me(clist)
+    //def l = new JsonSlurper().parseText(clist)
+    //println l[0] + " ------------------------- GEN LIST"
+    clist.each { items ->
+        println "clist items :::::::::::::::::::::::::::"
+        println items
+    }
+    //def postdata = generatepostdata("http://heelo.com/aseas/")
+    //println postdata
+    //clist.each { line ->
+        //println line
+        //def postdata = generatepostdata("${item}")
+        //println postdata
+    //}
 }
 
 @NonCPS
@@ -68,21 +99,6 @@ def generatepostdata(String str) {
     //return json
 }
 
-def createrepo(String[] clist) {
-    //println createlist
-    clist.each {
-        println it
-    }
-    //def postdata = generatepostdata("http://heelo.com/aseas/")
-    //println postdata
-    for (i = 0; i <clist.size(); i++) {
-        println clist[i]
-    }
-    clist.each { line ->
-        //println line
-        //def postdata = generatepostdata("${item}")
-        //println postdata
-    }
-}
+
 
 return this
