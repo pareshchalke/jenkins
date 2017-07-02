@@ -2,8 +2,8 @@ node {
     checkout scm
     def p = load "lib.groovy"
 
-    p.getnexusrepo("http://172.17.0.1:8081")
-
+    def output = p.getnexusrepo("http://172.17.0.1:8081")
+    println output
     p.test1()
 
 }
