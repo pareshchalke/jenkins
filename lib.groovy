@@ -14,12 +14,18 @@ def getnexusrepo(String url) {
     return nexuslist
 }
 
-def test3(String nexuslist, String repofile) {
-    writeFile file: "repofile", text: "${repofile}"
-    def repolist = new File("repofile")
-    repolist.eachLine { line ->
-        println line
+def generatelist(String nexuslist, String repofile) {
+    def newlist = []
+    def workspace = env.WORKSPACE
+    def repolist = new File("${workspace}/${repofile}")
+    def lines = repolist.readLines()
+    lines.each { String line ->
+        value = nexuslist.contains(line)
+        if (!value) {
+            newlist << line
+        }
     }
+    return newlist
 }
 
 def test2() {

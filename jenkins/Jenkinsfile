@@ -2,9 +2,10 @@ node {
     checkout scm
     sh("ls")
     def p = load "lib.groovy"
-    def filecontent = readFile file: "repolist"
+
     def output = p.getnexusrepo("http://172.17.0.1:8081/nexus/service/local/repositories")
-    //def repo = p.missingrepos(output)
-    println p.test3("${output}","${filecontent}")
+
+    def newlist = p.generatelist("${output}","repolist")
+    println newlist
     //println p.test2()
 }
