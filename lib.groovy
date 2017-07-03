@@ -13,12 +13,6 @@ def getnexusrepo(String url) {
         repo = it.remoteUri
         repo && nexuslist << it.remoteUri
     }
-    //println nexuslist
-    /*nexuslist.each {
-        println "++++++++ NEXUS LIST"
-        println it
-        println "++++++++"
-    }*/
     nexuslist
 }
 
@@ -35,33 +29,20 @@ def generatelist(String[] nexusrepo, String repofile) {
     lines.each { String line ->
         value = nexusrepo.contains(line)
         if (value == false) {
-            //println line + "MMMMMMMMMMMMMMMMMMMMM"
             line && newlist << line
         }
-        //println newlist
     }
     println newlist
     newlist
 }
 
-def createrepo(String[] clist, String msg) {
+def createrepo(String[] clist) {
     println "************* createrepo method"
     println clist
-    //println "${msg}"
-    //def l = Eval.me(clist)
-    //def l = new JsonSlurper().parseText(clist)
-    //println l[0] + " ------------------------- GEN LIST"
     clist.each { items ->
-        println "clist items :::::::::::::::::::::::::::"
-        println items
+        def postdata = generatepostdata("${items}")
+        println postdata
     }
-    //def postdata = generatepostdata("http://heelo.com/aseas/")
-    //println postdata
-    //clist.each { line ->
-        //println line
-        //def postdata = generatepostdata("${item}")
-        //println postdata
-    //}
 }
 
 @NonCPS
@@ -69,8 +50,6 @@ def generatepostdata(String str) {
     remoteUri = str
     repodomain = str.split('/')
     reponame = repodomain[2].replace(".","-")
-    //def writer = new StringWriter()
-    //def builder = new groovy.json.JsonBuilder()
     def body = [
         displayName: "smoketest",
         description: "forsmoketesting",
@@ -92,13 +71,6 @@ def generatepostdata(String str) {
             connectionSettings: null
         )
     }
-    //def json = new groovy.json.JsonBuilder()
-    //def root = json.build { build_number "world"}
     return builder.toString()
-    //def json = JsonOutput.toJson(root)
-    //return json
 }
-
-
-
 return this

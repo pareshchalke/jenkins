@@ -1,24 +1,13 @@
 node {
     checkout scm
     sh("ls")
-    //String[] output = []
-    //String[] genlist = []
+
     def p = load "lib.groovy"
 
     def output = p.getnexusrepo("http://172.17.0.1:8081/nexus/service/local/repositories")
-    println output
-    output.each {
-        //println "output NExus repo list-----------------------"
-        println it
-    }
-    genlist = p.generatelist(output as String[],"repolist")
-    genlist.each {
-        println "genlist method ================="
-        println it
-        println "£££££££££££££££££££££££££ TO BE CREATED"
-    }
-    status = p.createrepo(genlist as String[],"Group")
-    //p.createrepo()
 
-    //println p.test2()
+    genlist = p.generatelist(output as String[],"repolist")
+
+    status = p.createrepo(genlist as String[])
+
 }
