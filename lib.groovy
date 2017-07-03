@@ -33,15 +33,11 @@ def generatelist(String[] nexusrepo, String repofile) {
 }
 
 @NonCPS
-def createrepo(String[] clist, String url) {
-    println "************* createrepo method"
-    println clist
-    clist.each { items ->
-        postdata = generatepostdata("${items}")
-        postresponse = httpRequest acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', url: "${url}", authentication: 'nexus-admin', httpMode: 'POST', requestBody: postdata
-        println('Status: '+postresponse.status)
-        println('Response: '+postresponse.content)
-    }
+def createrepo(String list, String url) {
+  postdata = generatepostdata("${items}")
+  postresponse = httpRequest acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', url: "${url}", authentication: 'nexus-admin', httpMode: 'POST', requestBody: postdata
+  println('Status: '+postresponse.status)
+  println('Response: '+postresponse.content)
 }
 
 @NonCPS

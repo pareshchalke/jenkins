@@ -7,7 +7,7 @@ node {
     def output = p.getnexusrepo(URL)
 
     genlist = p.generatelist(output as String[],"repolist")
-
-    status = p.createrepo(genlist as String[], URL)
-
+    genlist.each {
+      status = p.createrepo( it, URL)
+    }
 }
