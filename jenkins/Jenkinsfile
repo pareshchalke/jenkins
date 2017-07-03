@@ -1,13 +1,13 @@
 node {
     checkout scm
     sh("ls")
-
+    def URL = "http://172.17.0.1:8081/nexus/service/local/repositories"
     def p = load "lib.groovy"
 
-    def output = p.getnexusrepo("http://172.17.0.1:8081/nexus/service/local/repositories")
+    def output = p.getnexusrepo(URL)
 
     genlist = p.generatelist(output as String[],"repolist")
 
-    status = p.createrepo(genlist as String[])
+    status = p.createrepo(genlist as String[], URL)
 
 }

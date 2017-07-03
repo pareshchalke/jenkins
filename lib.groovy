@@ -1,9 +1,5 @@
 import groovy.json.*
 
-def test1() {
-  println "test1"
-}
-
 def getnexusrepo(String url) {
     def nexuslist = []
     def response = httpRequest acceptType: 'APPLICATION_JSON', url: "${url}"
@@ -36,12 +32,15 @@ def generatelist(String[] nexusrepo, String repofile) {
     newlist
 }
 
-def createrepo(String[] clist) {
+@NonCPS
+def createrepo(String[] clist, String url) {
     println "************* createrepo method"
     println clist
     clist.each { items ->
-        def postdata = generatepostdata("${items}")
-        println postdata
+        postdata = generatepostdata("${items}")
+        postresponse = httpRequest acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', url: "${url}", authentication: 'nexus-admin', httpMode: 'POST', requestBody: postdata
+        println('Status: '+postresponse.status)
+        println('Response: '+postresponse.content)
     }
 }
 
@@ -50,10 +49,6 @@ def generatepostdata(String str) {
     remoteUri = str
     repodomain = str.split('/')
     reponame = repodomain[2].replace(".","-")
-    def body = [
-        displayName: "smoketest",
-        description: "forsmoketesting",
-        genusTypeId: "type"]
     def builder = new JsonBuilder()
     def root = builder.data {
         repoType("proxy")
