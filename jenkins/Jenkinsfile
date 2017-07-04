@@ -9,11 +9,7 @@ node {
     genlist = p.generatelist(output as String[],"repolist")
     println "Iterate genlist"
     genlist.each {
-        //println it
         status = p.createrepo( it, URL)
-        //groupdata = p.generategrouppostdata( it, URL )
         repoadd = p.addrepo( it , URL )
-        //println groupdata
     }
-    println "Iterate genlist"
 }
