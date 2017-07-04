@@ -1,3 +1,4 @@
+package net.cake;
 import groovy.json.*
 
 def getnexusrepo(String url) {
