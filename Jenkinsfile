@@ -5,7 +5,7 @@ pipeline {
             environment {
                 nexusurl = 'http://172.17.0.1:8081/nexus'
                 nexusgroupname = 'cake-sbt'
-                repofilename = 'repofile'
+                repofilename = 'repolist'
                 creds = 'nexus-admin'
             }
             steps {
