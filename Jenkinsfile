@@ -1,6 +1,8 @@
 pipeline {
     agent any
     stages {
-        input(message:"hello") 
+      stage("Print message") {
+        input(message:"hello")   
+      }
     }
 }
